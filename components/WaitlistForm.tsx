@@ -51,17 +51,17 @@ export default function WaitlistForm({ onSuccess }: WaitlistFormProps) {
           <button
             type="submit"
             disabled={status === "loading" || status === "success"}
-            className="shrink-0 rounded-full bg-black text-white text-xs font-medium px-5 py-2.5 transition-all duration-200 hover:bg-zinc-800 active:scale-95 disabled:opacity-90 disabled:cursor-not-allowed flex items-center justify-center min-w-[105px] cursor-pointer"
+            className="shrink-0 rounded-full bg-black text-white text-xs font-medium px-5 py-2.5 transition-all duration-200 hover:bg-zinc-800 active:scale-95 disabled:opacity-90 disabled:cursor-not-allowed flex items-center justify-center min-w-[125px] cursor-pointer"
           >
             {status === "loading" ? (
               <Loader2 className="w-3.5 h-3.5 animate-spin text-white" />
             ) : status === "success" ? (
               <span className="flex items-center gap-1.5 text-emerald-400">
                 <Check className="w-3.5 h-3.5 stroke-[3]" />
-                Joined
+                Sent
               </span>
             ) : (
-              "Join waitlist"
+              "Download Demo"
             )}
           </button>
         </div>
@@ -75,7 +75,7 @@ export default function WaitlistForm({ onSuccess }: WaitlistFormProps) {
         {status === "success" && (
           <div className="mt-2.5 text-center text-xs text-emerald-700 bg-emerald-50/80 border border-emerald-200/70 rounded-full py-1.5 px-3.5 inline-flex items-center gap-1.5 shadow-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            You&apos;re #1,024 on the Ajo Digital waitlist! We&apos;ll notify you for early access.
+            Demo download link sent! Check your inbox or phone.
           </div>
         )}
       </form>

@@ -9,7 +9,7 @@ export default function Navbar() {
 
   const scrollToWaitlist = () => {
     setMobileMenuOpen(false);
-    const emailInput = document.querySelector('input[type="email"]') as HTMLInputElement | null;
+    const emailInput = (document.querySelector('#waitlist input') || document.querySelector('input')) as HTMLInputElement | null;
     if (emailInput) {
       emailInput.scrollIntoView({ behavior: "smooth", block: "center" });
       setTimeout(() => {
@@ -83,13 +83,13 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* CTA Button: Join waitlist */}
+          {/* CTA Button: Download Demo */}
           <button
             type="button"
             onClick={scrollToWaitlist}
             className="rounded-full bg-black text-white text-xs sm:text-[13px] font-medium px-4 sm:px-5 py-2.5 transition-all duration-200 hover:bg-zinc-800 active:scale-95 shadow-sm cursor-pointer"
           >
-            Join waitlist
+            Download Demo
           </button>
         </div>
 
@@ -100,7 +100,7 @@ export default function Navbar() {
             onClick={scrollToWaitlist}
             className="rounded-full bg-black text-white text-xs font-medium px-3.5 py-1.5 transition-all hover:bg-zinc-800 active:scale-95 cursor-pointer"
           >
-            Join
+            Demo
           </button>
           <button
             type="button"

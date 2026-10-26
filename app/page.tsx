@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
-import Logo from "@/components/Logo";
 import WaitlistForm from "@/components/WaitlistForm";
 import AudienceTabs from "@/components/AudienceTabs";
 import PhoneMockup from "@/components/PhoneMockup";
@@ -46,16 +45,6 @@ export default function Home() {
 
       {/* Main Website Viewport */}
       <main className="w-full max-w-5xl mx-auto px-4 sm:px-6 pt-10 sm:pt-14 pb-12 text-center relative z-10 flex-1">
-        {/* Top Logo / Icon */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex justify-center mb-4 sm:mb-5"
-        >
-          <Logo size={46} />
-        </motion.div>
-
         {/* Category Pill Tag */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -64,7 +53,7 @@ export default function Home() {
           className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-[11px] font-semibold mb-4 shadow-2xs select-none"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          Ajo Digital • Modernizing Africa&apos;s Informal Savings
+          Built on CBN-compliant banking infrastructure • Powered by Wema Bank &amp; Anchor
         </motion.div>
 
         {/* Main Headline */}

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <style>
+    .icon-rect { stroke: #1a252c; }
+    @media (prefers-color-scheme: dark) {
+      .icon-rect { stroke: #ffffff; }
+    }
+  </style>
+  <rect
+    class="icon-rect"
+    x="2"
+    y="2.5"
+    width="13"
+    height="13"
+    rx="3"
+    stroke-width="2.4"
+  />
+  <rect
+    class="icon-rect"
+    x="9.5"
+    y="10"
+    width="10.5"
+    height="10.5"
+    rx="2.6"
+    stroke-width="2.4"
+  />
+</svg>

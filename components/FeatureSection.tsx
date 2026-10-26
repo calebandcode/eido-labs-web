@@ -2,7 +2,6 @@
 
 import React from "react";
 import {
-  Zap,
   Check,
   Building2,
   ArrowRight,
@@ -69,12 +68,9 @@ export default function FeatureSection() {
             AJO
           </motion.div>
 
-          <div className="relative z-10 flex items-center justify-between">
+          <div className="relative z-10">
             <span className="text-[11px] font-bold tracking-wider uppercase text-blue-900/70">
-              Read-Only Passbook
-            </span>
-            <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-white/70 text-blue-900 shadow-2xs backdrop-blur-xs">
-              Zero App to Install
+              SAVER EXPERIENCE
             </span>
           </div>
 
@@ -83,7 +79,7 @@ export default function FeatureSection() {
               Digital Passbook
             </h3>
             <p className="text-xs text-blue-950/75 mt-2 max-w-[280px] leading-relaxed">
-              Savers view daily deposits, balance, and payout milestones via a simple private link. No app download or passwords needed.
+              Savers monitor their 30-day savings streak, check verified balances, and pay thrift directly via their dedicated Wema virtual account—all through a secure private link without passwords.
             </p>
 
             <motion.button
@@ -93,7 +89,7 @@ export default function FeatureSection() {
               onClick={scrollToWaitlist}
               className="mt-5 inline-flex items-center gap-2 rounded-full bg-black text-white text-xs font-semibold px-5 py-3 hover:bg-zinc-800 transition-colors shadow-sm cursor-pointer"
             >
-              <span>Join waitlist</span>
+              <span>Explore Demo</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </motion.button>
           </div>
@@ -109,19 +105,16 @@ export default function FeatureSection() {
           className="md:col-span-7 rounded-[32px] bg-[#f4f5f8] p-7 sm:p-8 flex flex-col justify-between min-h-[350px] sm:min-h-[390px] relative overflow-hidden shadow-xs border border-zinc-200/60 transition-shadow hover:shadow-lg"
         >
           <div>
-            <div className="flex items-center justify-between mb-1">
+            <div className="mb-1">
               <span className="text-[11px] font-bold tracking-wider uppercase text-zinc-400">
-                Instant Confirmation
-              </span>
-              <span className="text-[10px] font-medium text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/50">
-                Zero Paper Cards
+                INSTANT CONFIRMATION
               </span>
             </div>
             <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-900">
               Automated SMS Receipts
             </h3>
             <p className="text-xs sm:text-sm text-zinc-500 mt-1.5 max-w-[380px] leading-relaxed">
-              Every logged payment triggers a real-time text message to the contributor&apos;s phone, instantly establishing unshakeable trust.
+              Every cash collection or bank transfer triggers an immediate GSM SMS receipt straight to the contributor&apos;s feature phone via Termii—guaranteeing unshakeable market trust.
             </p>
           </div>
 
@@ -137,15 +130,15 @@ export default function FeatureSection() {
             >
               <div className="flex items-center justify-between text-[9px] text-zinc-400 font-semibold mb-2">
                 <span>9:41</span>
-                <span>2 of 3</span>
+                <span>Termii GSM</span>
               </div>
-              <div className="text-[10px] font-bold text-zinc-800">Record daily contribution</div>
+              <div className="text-[10px] font-bold text-zinc-800">SENDER: AJO-THRIFT</div>
               <div className="mt-2 p-2 rounded-xl bg-zinc-50 border border-zinc-100 flex items-center justify-between">
-                <span className="text-[10px] text-zinc-500 font-medium">Kuda Bank</span>
-                <span className="text-[10px] font-bold text-zinc-800">₦12,000.00</span>
+                <span className="text-[10px] text-zinc-500 font-medium">Wema Bank</span>
+                <span className="text-[10px] font-bold text-zinc-800">₦28,000.00</span>
               </div>
               <div className="mt-2 text-[9px] text-zinc-400 leading-tight">
-                ₦2,000 daily thrift logged for today.
+                [AJO PROOF] ₦2,000 received for Wed 14.
               </div>
               <div className="mt-2.5 flex items-center justify-center gap-3">
                 <div className="w-5 h-5 rounded-full bg-zinc-100 flex items-center justify-center text-xs font-bold text-zinc-600">
@@ -172,7 +165,7 @@ export default function FeatureSection() {
                 </div>
                 <div className="min-w-0">
                   <div className="text-xs font-bold text-zinc-900 truncate">Mama Bisi (Stall 14)</div>
-                  <div className="text-[10px] text-zinc-400 truncate">Tomato Section Route</div>
+                  <div className="text-[10px] text-zinc-400 truncate">Tomato Section • Cycle 2</div>
                 </div>
                 <div className="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px] ml-auto shrink-0 shadow-2xs">
                   <Check className="w-3 h-3 stroke-[3]" />
@@ -183,9 +176,9 @@ export default function FeatureSection() {
                 <div className="text-[10px] text-zinc-400">Savings Contribution</div>
                 <div className="text-lg font-bold text-zinc-900 tabular-nums">₦2,000.00</div>
                 <div className="mt-1.5 flex items-center justify-between text-[10px]">
-                  <span className="text-zinc-500">SMS delivered to 0803 ••• 1928</span>
+                  <span className="text-zinc-500">Delivered to 0803 ••• 1928</span>
                   <span className="font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">
-                    Delivered ✓
+                    GSM Network ✓✓
                   </span>
                 </div>
               </div>
@@ -203,19 +196,16 @@ export default function FeatureSection() {
           className="md:col-span-7 rounded-[32px] bg-[#edf1f6] p-7 sm:p-8 flex flex-col justify-between min-h-[350px] sm:min-h-[390px] relative overflow-hidden shadow-xs border border-zinc-200/60 transition-shadow hover:shadow-lg"
         >
           <div>
-            <div className="flex items-center justify-between mb-1">
+            <div className="mb-1">
               <span className="text-[11px] font-bold tracking-wider uppercase text-zinc-400">
-                Street-Ready Architecture
-              </span>
-              <span className="text-[10px] font-semibold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200/50 inline-flex items-center gap-1">
-                <Zap className="w-2.5 h-2.5 text-amber-500 fill-amber-500" /> Auto-Syncs
+                STREET-READY ARCHITECTURE
               </span>
             </div>
             <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-900">
               Offline-First Market Ledger
             </h3>
             <p className="text-xs sm:text-sm text-zinc-500 mt-1.5 max-w-[440px] leading-relaxed">
-              Log physical cash payments on the street deep inside dense market stalls with zero internet. Automatically syncs the moment you reconnect.
+              Collect physical cash and stamp daily cards deep inside dense, basement market stalls with zero internet connectivity. Transactions commit locally and sync seamlessly once signal returns.
             </p>
           </div>
 
@@ -231,9 +221,9 @@ export default function FeatureSection() {
             >
               <div className="flex items-center gap-2 text-zinc-500">
                 <Building2 className="w-3.5 h-3.5" />
-                <span>Settlement Bank</span>
+                <span>Offline Mode Active</span>
               </div>
-              <span className="font-bold text-zinc-800">Kuda • ₦142,500</span>
+              <span className="font-bold text-zinc-800">14 Txns Queued to Sync</span>
             </motion.div>
 
             {/* Foreground Main Route Progress Card */}
@@ -241,14 +231,14 @@ export default function FeatureSection() {
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-[10px] font-semibold uppercase tracking-wider text-zinc-400">
-                    Daily Route Walk
+                    Daily Collection Route
                   </div>
                   <div className="text-sm font-bold text-zinc-900 mt-0.5">
-                    Tomato Section • Circle 2
+                    Balogun Block C • Cycle 2
                   </div>
                 </div>
                 <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/50">
-                  Active Walk
+                  Active Run
                 </span>
               </div>
 
@@ -256,7 +246,7 @@ export default function FeatureSection() {
               <div className="mt-3.5 pt-3 border-t border-zinc-100">
                 <div className="flex items-center justify-between text-xs">
                   <span className="text-zinc-500">Total Collected Today</span>
-                  <span className="text-sm font-bold text-zinc-900 tabular-nums">₦142,500</span>
+                  <span className="text-sm font-bold text-zinc-900 tabular-nums">₦142,500.00</span>
                 </div>
                 <div className="w-full h-2 rounded-full bg-zinc-100 mt-2 overflow-hidden flex">
                   <motion.div
@@ -268,15 +258,15 @@ export default function FeatureSection() {
                   />
                 </div>
                 <div className="flex items-center justify-between text-[10px] text-zinc-400 mt-1.5 font-medium">
-                  <span>32 of 35 Traders Paid</span>
-                  <span>Day 21 of 30</span>
+                  <span>32 of 35 Traders Collected</span>
+                  <span>3 Pending</span>
                 </div>
               </div>
             </div>
           </div>
         </motion.div>
 
-        {/* CARD 4 (Bottom-Right): Pale Mint Green - Zero-Custody Bank Routing */}
+        {/* CARD 4 (Bottom-Right): Pale Mint Green - Automated Escrow & Payouts */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -286,24 +276,21 @@ export default function FeatureSection() {
           className="md:col-span-5 rounded-[32px] bg-[#dff1e9] p-7 sm:p-8 flex flex-col justify-between min-h-[350px] sm:min-h-[390px] relative overflow-hidden shadow-xs border border-emerald-200/50 transition-shadow hover:shadow-lg"
         >
           <div>
-            <div className="flex items-center justify-between mb-1">
+            <div className="mb-1">
               <span className="text-[11px] font-bold tracking-wider uppercase text-emerald-900/60">
-                Zero-Custody Routing
-              </span>
-              <span className="text-[10px] font-semibold text-emerald-800 bg-white/70 px-2 py-0.5 rounded-full shadow-2xs">
-                Direct Settlement
+                SETTLEMENT & TREASURY
               </span>
             </div>
             <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-900">
-              Zero-Custody Bank Routing
+              Automated Escrow & Payouts
             </h3>
             <p className="text-xs sm:text-sm text-emerald-950/75 mt-1.5 leading-relaxed">
-              Virtual accounts route remote payments straight into the collector&apos;s personal bank within 24 hours. The platform never pools or holds capital.
+              Collections sit in a bank-backed escrow pool. On Day 30, Day 1 Alajo fees are retained and net payouts sweep directly into trader bank accounts.
             </p>
           </div>
 
           {/* Visual UI Preview: Sleek Black Card with Radiating Satellite Connection Nodes (Mofin Reference) */}
-          <div className="mt-6 pt-3 relative flex items-center justify-center h-[175px]">
+          <div className="mt-4 pt-1 relative flex items-center justify-center h-[160px]">
             {/* SVG Connecting Curved Lines with Animated Drawing */}
             <svg
               className="absolute inset-0 w-full h-full pointer-events-none"
@@ -385,21 +372,21 @@ export default function FeatureSection() {
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="w-[180px] h-[105px] rounded-2xl bg-zinc-900 text-white p-3 shadow-xl relative z-10 flex flex-col justify-between border border-zinc-800"
+              className="w-[176px] h-[98px] rounded-2xl bg-zinc-900 text-white p-3 shadow-xl relative z-10 flex flex-col justify-between border border-zinc-800"
             >
               <div className="flex items-center justify-between">
                 <span className="text-[8px] uppercase tracking-wider text-zinc-400 font-medium">
-                  Direct Settlement
+                  PAYOUT SETTLEMENT
                 </span>
-                <span className="font-bold text-[11px] tracking-tight text-white">Ajo Direct</span>
+                <span className="font-bold text-[11px] tracking-tight text-white">Alhaji Kassim</span>
               </div>
 
               <div>
                 <div className="text-[10px] text-zinc-400 font-mono tracking-wider">
-                  0123 •••• 8920
+                  30-Day Thrift: ₦120,000
                 </div>
                 <div className="text-[9px] text-emerald-400 font-medium mt-0.5 truncate">
-                  Pa Sunday Oladipo • Kuda
+                  Net Disbursed: ₦116,000 (Access)
                 </div>
               </div>
             </motion.div>
@@ -412,7 +399,7 @@ export default function FeatureSection() {
               viewport={{ once: true }}
               transition={{ delay: 0.35, type: "spring", stiffness: 280, damping: 18 }}
               className="absolute top-1 right-[34%] w-7 h-7 rounded-full bg-white shadow-md flex items-center justify-center text-emerald-700 z-20 border border-emerald-100"
-              title="Remote Transfer"
+              title="Termii SMS Alert"
             >
               <Send className="w-3.5 h-3.5" />
             </motion.div>
@@ -424,7 +411,7 @@ export default function FeatureSection() {
               viewport={{ once: true }}
               transition={{ delay: 0.42, type: "spring", stiffness: 280, damping: 18 }}
               className="absolute top-5 right-3 w-7 h-7 rounded-full bg-white shadow-md flex items-center justify-center text-blue-700 z-20 border border-blue-100"
-              title="Commercial Bank"
+              title="Wema Escrow Pool"
             >
               <Building2 className="w-3.5 h-3.5" />
             </motion.div>
@@ -436,7 +423,7 @@ export default function FeatureSection() {
               viewport={{ once: true }}
               transition={{ delay: 0.49, type: "spring", stiffness: 280, damping: 18 }}
               className="absolute top-5 left-3 w-7 h-7 rounded-full bg-white shadow-md flex items-center justify-center text-amber-700 z-20 border border-amber-100"
-              title="Market Stall"
+              title="Day 1 Fee Retained"
             >
               <ShoppingBag className="w-3.5 h-3.5" />
             </motion.div>
@@ -448,7 +435,7 @@ export default function FeatureSection() {
               viewport={{ once: true }}
               transition={{ delay: 0.56, type: "spring", stiffness: 280, damping: 18 }}
               className="absolute bottom-2 left-3 w-7 h-7 rounded-full bg-white shadow-md flex items-center justify-center text-cyan-700 z-20 border border-cyan-100"
-              title="Thrift Growth"
+              title="Instant NIBSS Sweep"
             >
               <TrendingUp className="w-3.5 h-3.5" />
             </motion.div>
@@ -460,7 +447,7 @@ export default function FeatureSection() {
               viewport={{ once: true }}
               transition={{ delay: 0.63, type: "spring", stiffness: 280, damping: 18 }}
               className="absolute -bottom-1 right-[42%] w-7 h-7 rounded-full bg-white shadow-md flex items-center justify-center text-emerald-700 z-20 border border-emerald-100"
-              title="Zero Custody"
+              title="Zero Float Loss"
             >
               <Lock className="w-3.5 h-3.5" />
             </motion.div>
@@ -472,7 +459,7 @@ export default function FeatureSection() {
               viewport={{ once: true }}
               transition={{ delay: 0.7, type: "spring", stiffness: 280, damping: 18 }}
               className="absolute bottom-2 right-3 w-7 h-7 rounded-full bg-white shadow-md flex items-center justify-center text-zinc-700 z-20 border border-zinc-100"
-              title="Instant Notification"
+              title="Commercial Bank Settlement"
             >
               <Smartphone className="w-3.5 h-3.5" />
             </motion.div>
