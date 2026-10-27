@@ -1,26 +1,17 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { Download, X, Smartphone, CheckCircle, ExternalLink, ShieldCheck } from "lucide-react";
+
+export const DEMO_APK_URL =
+  "https://github.com/calebandcode/ajodigital-demo/releases/download/v0.1.0-demo/Ajo-v0.1.apk";
 
 interface DemoModalProps {
   isOpen: boolean;
   onClose: () => void;
-  title?: string;
 }
 
-export default function DemoModal({
-  isOpen,
-  onClose,
-  title = "Initiate Research Collaboration",
-}: DemoModalProps) {
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [organization, setOrganization] = useState("");
-  const [interest, setInterest] = useState("joint-research");
-  const [message, setMessage] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-
+export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
   // Close on Escape key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -38,166 +29,90 @@ export default function DemoModal({
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email || !name) return;
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-    }, 600);
-  };
-
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 select-none">
       {/* Backdrop */}
       <div
         onClick={onClose}
-        className="fixed inset-0 bg-black/85 backdrop-blur-md transition-opacity duration-300"
+        className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300"
       />
 
       {/* Modal Dialog */}
-      <div className="relative w-full max-w-lg bg-zinc-950 border border-zinc-800/90 rounded-xl p-6 sm:p-8 shadow-[0_0_60px_rgba(0,0,0,0.9)] z-10 max-h-[92vh] overflow-y-auto">
-        {/* Subtle top edge border glow */}
-        <div className="absolute top-0 left-1/4 right-1/4 h-[1px] bg-gradient-to-r from-transparent via-zinc-400/30 to-transparent" />
-
+      <div className="relative w-full max-w-md bg-white border border-zinc-200/80 rounded-[32px] p-6 sm:p-7 shadow-[0_24px_60px_rgba(0,0,0,0.18)] z-10 max-h-[92vh] overflow-y-auto text-left">
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-zinc-500 hover:text-white transition-colors p-1"
+          className="absolute top-5 right-5 w-8 h-8 rounded-full bg-zinc-100 hover:bg-zinc-200 text-zinc-500 hover:text-zinc-900 transition-colors flex items-center justify-center cursor-pointer"
           aria-label="Close"
         >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
-          </svg>
+          <X className="w-4 h-4" />
         </button>
 
-        {!submitted ? (
-          <div>
-            <div className="mb-6">
-              <div className="inline-block px-2.5 py-0.5 rounded border border-zinc-800 text-[10px] font-mono tracking-widest uppercase text-zinc-400 mb-2">
-                EIDO LABS LTD · COLLABORATION DESK
-              </div>
-              <h2 className="text-xl sm:text-2xl font-normal tracking-tight text-white">
-                {title}
-              </h2>
-              <p className="text-xs sm:text-sm text-zinc-400 mt-1.5 leading-relaxed">
-                Connect with our founding engineering team regarding academic consortia, hardware prototyping,
-                AI research, or capacity-building programs in Nigeria.
-              </p>
+        {/* Modal Header */}
+        <div className="flex items-center gap-2 mb-3">
+          <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-[11px] font-semibold">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            Pre-Release Build
+          </span>
+          <span className="text-[11px] font-mono text-zinc-400">v0.1.0-demo</span>
+        </div>
+
+        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-900">
+          Download Ajo Digital Demo
+        </h2>
+        <p className="text-xs sm:text-sm text-zinc-500 mt-1.5 leading-relaxed">
+          Test the native Android app on your device. Includes the collector route ledger and the saver digital passbook.
+        </p>
+
+        {/* Download Action Card */}
+        <div className="mt-5 p-4 rounded-2xl bg-zinc-50 border border-zinc-200/60 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-2xl bg-black text-white flex items-center justify-center shadow-xs">
+              <Smartphone className="w-5 h-5" />
             </div>
-
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-mono text-zinc-400 uppercase tracking-wider mb-1.5">
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="Dr. / Engr. / Full Name"
-                    className="w-full bg-zinc-900/80 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:border-zinc-500 transition-colors"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-mono text-zinc-400 uppercase tracking-wider mb-1.5">
-                    Contact Email
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="name@institution.com"
-                    className="w-full bg-zinc-900/80 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:border-zinc-500 transition-colors"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-mono text-zinc-400 uppercase tracking-wider mb-1.5">
-                  Affiliation / Institution / Company
-                </label>
-                <input
-                  type="text"
-                  value={organization}
-                  onChange={(e) => setOrganization(e.target.value)}
-                  placeholder="University, Research Body, Tech Venture, or Independent"
-                  className="w-full bg-zinc-900/80 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:border-zinc-500 transition-colors"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-mono text-zinc-400 uppercase tracking-wider mb-1.5">
-                  Collaboration Vector
-                </label>
-                <select
-                  value={interest}
-                  onChange={(e) => setInterest(e.target.value)}
-                  className="w-full bg-zinc-900/80 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-sm text-zinc-100 focus:outline-none focus:border-zinc-500 transition-colors cursor-pointer"
-                >
-                  <option value="joint-research">Joint R&amp;D / Academic Consortia (Objects A &amp; J)</option>
-                  <option value="robotics-hardware">Robotics &amp; Embedded Prototyping (Objects A, D, H)</option>
-                  <option value="ai-ml">Artificial Intelligence &amp; Intelligent Agents (Object B)</option>
-                  <option value="spatial-iot">Spatial Computing, Digital Twins &amp; IoT (Object C)</option>
-                  <option value="edtech-training">EdTech &amp; Capacity Building (Object E)</option>
-                  <option value="advisory-enterprise">Technology Advisory &amp; Systems Integration (Object F)</option>
-                  <option value="ventures-transfer">Strategic Ventures &amp; Tech Transfer (Objects I &amp; J)</option>
-                  <option value="general-inquiry">General Inquiry / Genesis Phase Support</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-xs font-mono text-zinc-400 uppercase tracking-wider mb-1.5">
-                  Brief Inquiry / Scope
-                </label>
-                <textarea
-                  rows={3}
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Outline your proposal, questions, or collaboration ideas..."
-                  className="w-full bg-zinc-900/80 border border-zinc-800 rounded-lg px-3.5 py-2 text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:border-zinc-500 transition-colors resize-none"
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full mt-2 py-2.5 px-4 rounded-lg bg-zinc-100 hover:bg-white text-black text-sm font-medium transition-all duration-150 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
-              >
-                {loading ? (
-                  <span className="inline-block w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
-                ) : (
-                  "Submit Collaboration Inquiry"
-                )}
-              </button>
-            </form>
-          </div>
-        ) : (
-          <div className="py-6 text-center">
-            <div className="w-12 h-12 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 flex items-center justify-center mx-auto mb-4">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
+            <div>
+              <div className="text-xs font-bold text-zinc-900">Ajo-v0.1.apk</div>
+              <div className="text-[10px] text-zinc-400 font-mono">Android Package • Direct Release</div>
             </div>
-            <h3 className="text-lg font-medium text-white mb-2">Inquiry Transmitted</h3>
-            <p className="text-sm text-zinc-400 leading-relaxed max-w-sm mx-auto">
-              Thank you, <span className="text-zinc-200">{name}</span>. Your inquiry has been routed to the
-              founding engineering desk at <span className="text-zinc-200">EIDO LABS LTD</span>. We will respond
-              to <span className="text-zinc-200">{email}</span> shortly.
-            </p>
-            <button
-              onClick={onClose}
-              className="mt-6 px-5 py-2 rounded-lg border border-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-300 hover:text-white hover:border-zinc-600 transition-colors"
-            >
-              Return to Laboratory Overview
-            </button>
           </div>
-        )}
+          <a
+            href={DEMO_APK_URL}
+            className="rounded-full bg-black text-white text-xs font-semibold px-4 py-2 hover:bg-zinc-800 transition-all flex items-center gap-1.5 shadow-sm active:scale-95"
+          >
+            <span>Download</span>
+            <Download className="w-3.5 h-3.5" />
+          </a>
+        </div>
+
+        {/* What's Included */}
+        <div className="mt-5 space-y-2 text-xs text-zinc-600">
+          <div className="flex items-start gap-2">
+            <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+            <span><strong>Collector Route Ledger</strong>: Offline daily savings collection &amp; instant sync.</span>
+          </div>
+          <div className="flex items-start gap-2">
+            <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+            <span><strong>Saver Passbook</strong>: Interactive 30-day savings calendar &amp; payment log.</span>
+          </div>
+          <div className="flex items-start gap-2">
+            <ShieldCheck className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
+            <span>Built on CBN-compliant banking infrastructure powered by Wema Bank &amp; Anchor.</span>
+          </div>
+        </div>
+
+        {/* GitHub Release Link */}
+        <div className="mt-6 pt-4 border-t border-zinc-100 flex items-center justify-between text-xs text-zinc-400">
+          <span>Hosted on GitHub Releases</span>
+          <a
+            href="https://github.com/calebandcode/ajodigital-demo/releases"
+            target="_blank"
+            rel="noreferrer"
+            className="text-zinc-700 hover:text-black font-medium inline-flex items-center gap-1 transition-colors"
+          >
+            <span>Release notes</span>
+            <ExternalLink className="w-3 h-3" />
+          </a>
+        </div>
       </div>
     </div>
   );

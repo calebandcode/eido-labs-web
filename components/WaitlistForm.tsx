@@ -1,7 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import { Check, Loader2 } from "lucide-react";
+import { Check, Loader2, Download } from "lucide-react";
+
+export const DEMO_APK_URL =
+  "https://github.com/calebandcode/ajodigital-demo/releases/download/v0.1.0-demo/Ajo-v0.1.apk";
 
 interface WaitlistFormProps {
   onSuccess?: (contact: string) => void;
@@ -12,7 +15,7 @@ export default function WaitlistForm({ onSuccess }: WaitlistFormProps) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const clean = contact.trim();
     if (!clean || (clean.indexOf("@") === -1 && clean.replace(/\D/g, "").length < 10)) {
@@ -24,11 +27,33 @@ export default function WaitlistForm({ onSuccess }: WaitlistFormProps) {
     setStatus("loading");
     setErrorMessage("");
 
-    // Simulate seamless async submission
+    // 1. Send lead to API (syncs to Google Sheet and local data/leads.json)
+    try {
+      fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ contact: clean }),
+      }).catch((err) => console.error("Lead sync failed:", err));
+    } catch (err) {
+      console.error(err);
+    }
+
+    // 2. Trigger instant pre-release APK download without waiting
     setTimeout(() => {
       setStatus("success");
       if (onSuccess) onSuccess(clean);
-    }, 800);
+
+      try {
+        const link = document.createElement("a");
+        link.href = DEMO_APK_URL;
+        link.download = "Ajo-v0.1.apk";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } catch {
+        window.location.href = DEMO_APK_URL;
+      }
+    }, 450);
   };
 
   return (
@@ -58,7 +83,7 @@ export default function WaitlistForm({ onSuccess }: WaitlistFormProps) {
             ) : status === "success" ? (
               <span className="flex items-center gap-1.5 text-emerald-400">
                 <Check className="w-3.5 h-3.5 stroke-[3]" />
-                Sent
+                Downloading
               </span>
             ) : (
               "Download Demo"
@@ -73,9 +98,29 @@ export default function WaitlistForm({ onSuccess }: WaitlistFormProps) {
         )}
 
         {status === "success" && (
-          <div className="mt-2.5 text-center text-xs text-emerald-700 bg-emerald-50/80 border border-emerald-200/70 rounded-full py-1.5 px-3.5 inline-flex items-center gap-1.5 shadow-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            Demo download link sent! Check your inbox or phone.
+          <div className="mt-2.5 text-center text-xs text-emerald-700 bg-emerald-50/90 border border-emerald-200/80 rounded-full py-1.5 px-4 inline-flex items-center gap-2 shadow-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+            <span>Downloading Ajo-v0.1.apk</span>
+            <span className="text-zinc-300">•</span>
+            <a
+              href={DEMO_APK_URL}
+              className="font-semibold underline hover:text-emerald-950 inline-flex items-center gap-1"
+            >
+              <span>Click if it didn&apos;t start</span>
+              <Download className="w-3 h-3" />
+            </a>
+          </div>
+        )}
+
+        {status !== "success" && (
+          <div className="mt-2 text-center">
+            <a
+              href={DEMO_APK_URL}
+              className="text-[11px] text-zinc-400 hover:text-zinc-700 transition-colors inline-flex items-center gap-1 font-medium"
+            >
+              <span>Or download APK directly (v0.1.0)</span>
+              <Download className="w-3 h-3 text-zinc-400" />
+            </a>
           </div>
         )}
       </form>

@@ -125,8 +125,8 @@ export default function Home() {
           >
             <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
             <div className="text-xs text-left">
-              <div className="font-semibold">You&apos;re on the list!</div>
-              <div className="text-zinc-400">Welcome to Ajo Digital early access.</div>
+              <div className="font-semibold">Demo APK Download Started!</div>
+              <div className="text-zinc-400">Ajo-v0.1.apk is downloading to your device.</div>
             </div>
           </motion.div>
         )}

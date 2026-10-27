@@ -82,16 +82,15 @@ export default function FeatureSection() {
               Savers monitor their 30-day savings streak, check verified balances, and pay thrift directly via their dedicated Wema virtual account—all through a secure private link without passwords.
             </p>
 
-            <motion.button
-              type="button"
+            <motion.a
+              href="https://github.com/calebandcode/ajodigital-demo/releases/download/v0.1.0-demo/Ajo-v0.1.apk"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              onClick={scrollToWaitlist}
               className="mt-5 inline-flex items-center gap-2 rounded-full bg-black text-white text-xs font-semibold px-5 py-3 hover:bg-zinc-800 transition-colors shadow-sm cursor-pointer"
             >
-              <span>Explore Demo</span>
+              <span>Download Demo (v0.1.0)</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </motion.button>
+            </motion.a>
           </div>
         </motion.div>
 
